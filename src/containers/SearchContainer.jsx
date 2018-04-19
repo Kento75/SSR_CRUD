@@ -42,7 +42,9 @@ SearchContainer.propTypes = {
   })).isRequired
 }
 
-
+// Storeに変化があったときに呼ばれる。
+// propsの値を変化させる。
+// ※ 上記のrender()でSearchに流しているpropsを変更
 function mapStateToProps(state) {
   const {
     searchWord,
@@ -52,3 +54,10 @@ function mapStateToProps(state) {
 
   }
 }
+
+// Storeの監視
+// 変化があった場合mapStateTOPropsを実行して、
+// searchcontainerのpropsを変更する。
+export default connect(
+  mapStateToProps
+)(SearchContainer);
