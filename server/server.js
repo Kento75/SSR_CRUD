@@ -10,7 +10,7 @@ var app = express();
 var compiler = webpack(config);
 
 // webpackミドルウェアの実装(webpack.config.jsを実装)
-app.use(requre('webpack-dev-middleware')(compiler, {
+app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
 }));

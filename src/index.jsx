@@ -23,7 +23,7 @@ const enhancer = compose(
 );
 
 const store = createStore(
-  combineReducers({ rootReducer, rooting: routerReducer }),
+  combineReducers({ rootReducer, routing: routerReducer }),
   enhancer
 );
 
@@ -33,10 +33,10 @@ const history = syncHistoryWithStore(baseHistory, store);
 const routes = createRoute(store);
 
 ReactDOM.render(
-  <Provider store ={store} >
-  
-)
-
-
-
-
+  <Provider store={store}>
+    <Router history={history}>
+      {routes}
+    </Router>
+  </Provider>,
+  document.querySelectorAll('.main')[0]
+);
